@@ -1,0 +1,12 @@
+services:
+  db:
+    image: bitnami/mongodb:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    restart: "on-failure"
+    environment:
+      MONGO_REPLICA_SET_MODE: primary
+      MONGO_REPLICA_SET_NAME: rs0
+      MONGO_ADVERTISED_HOSTNAME: localhost
+      ALLOW_EMPTY_PASSWORD: "yes"
